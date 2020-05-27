@@ -62,12 +62,12 @@ export default {
 
     }
   },
-  created() {
-    Toast.loading({
-      forbidClick: true,
-      duration: 0, // 持续展示 toast
-    })
-  },
+  // created() {
+  //   Toast.loading({
+  //     forbidClick: true,
+  //     duration: 0, // 持续展示 toast
+  //   })
+  // },
   mounted() {
     document.body.scrollTop = document.documentElement.scrollTop = 0
     this._goodsList(this.catid)

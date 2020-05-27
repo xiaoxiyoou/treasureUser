@@ -71,7 +71,9 @@
               <div class="tip">---为您提供全程殡葬礼仪服务</div>
             </div>
             <div class="content row a-c">
-              <img class="shopimg" :src="shop.imgurl" alt="">
+              <div class="shopimgCon">
+                <img class="shopimg" :src="shop.imgurl" alt="">
+              </div>
               <div class="item">
                 <div>{{shop.category}}</div>
                 <div class="row a-c">
@@ -622,15 +624,16 @@ export default {
     // 分享
 
     wxShare() {
-      let link = 'http://b.fuyulove.com/wisdom/#' + localStorage.getItem('fromUrl')
-      axios.get('http://b.fuyulove.com/Action/CacheData.aspx?action=jssdk', {
+      let link = 'http://wx.app.jzb768.com/#' + localStorage.getItem('fromUrl')
+      axios.get('http://passport.fuyulove.com/action/jssdk', {
         params: {
+          sid: 658,
           url: location.href.split('#')[0],
           t: Math.random()
         }
       })
         .then(res => {
-          console.log('授权', res)
+          console.log('签名', res)
           config(res.data.data.data)
         })
         .catch(function (error) {
@@ -663,14 +666,14 @@ export default {
             title: this.title,
             link: link,
             desc: "您的好友邀请您来一同追思",
-            imgUrl: 'http://b.fuyulove.com/wisdom/img/share.jpg',
+            imgUrl: 'http://wx.app.jzb768.com/picture/share.jpg',
           })
         })
         wx.onMenuShareTimeline({
           title: this.title,
           link: link,
           desc: "您的好友邀请您来一同追思",
-          imgUrl: 'http://b.fuyulove.com/wisdom/img/share.jpg',
+          imgUrl: 'http://wx.app.jzb768.com/picture/share.jpg',
         })
         wx.error(function () { })
       }
@@ -741,12 +744,13 @@ export default {
     wxImgDown(id) {
       axios({
         method: "post",
-        url: 'http://cdn.fuyulove.com/action/wxImgDown.ashx',
+        url: 'http://cdn.fuyulove.com/action/wxImgDownthird.ashx',
         headers: {
           'Content-type': 'application/x-www-form-urlencoded'
         },
         data: {
           media_id: id,
+          sid: 658
         },
         transformRequest: [function (data) {
           let ret = ''
@@ -869,7 +873,7 @@ export default {
 
     // 查看更多商家信息
     shopDetail() {
-      location.href = 'http://wx.fuyulove.com/Merch/detail?sid=' + this.info.sid
+      location.href = 'http://wx.fuyulove.com/Merch/detail?sid=' + this.info.shopid
     },
     // 美好回忆图片
     updateWaterfall() {
@@ -1870,8 +1874,13 @@ export default {
   font-size: 27px;
   margin-left: 20px;
 }
+.shop-wrapper > .content > .shopimgCon {
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+}
 
-.shop-wrapper > .content > .shopimg {
+.shop-wrapper > .content > .shopimgCon > .shopimg {
   width: 150px;
   height: 150px;
   border-radius: 10px;
@@ -2010,20 +2019,19 @@ export default {
 .container .msgWrapper .btn,
 .container .flowerWrapper .flowerbtn .item .preview,
 .container .visit .item-wrapper .item .des,
-.container .flowerWrapper .flowerbtn .item .num ,
+.container .flowerWrapper .flowerbtn .item .num,
 .container .btm,
 .container .remindWrapper .sendbtn .sendcustom,
 .container .remindWrapper .sendbtn .sendbtntip,
-.msgWrapper > .itemWrapper > .item > .info > .btmItem > .dalete{
+.msgWrapper > .itemWrapper > .item > .info > .btmItem > .dalete {
   color: $color;
 }
 .container .msgWrapper .btn,
 .container .flowerWrapper .flowerbtn .item .preview,
-.container .remindWrapper .sendbtn .sendcustom
- {
+.container .remindWrapper .sendbtn .sendcustom {
   border: 1px solid $color;
 }
-.container .remindWrapper .sendbtn .sendbtntip{
+.container .remindWrapper .sendbtn .sendbtntip {
   border-bottom: 1px solid $color;
 }
 .container .shareWrapper .title,
@@ -2033,7 +2041,7 @@ export default {
 .container .remindWrapper .title,
 .msgWrapper > .itemWrapper > .item > .info > .btmItem > .btn,
 .btmMsg > .item > .btn,
-.container .toShare .btmCon .sharebtm{
+.container .toShare .btmCon .sharebtm {
   background-color: $color;
 }
 </style>
