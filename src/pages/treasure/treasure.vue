@@ -30,7 +30,8 @@
     <van-list v-model="loading" :finished="finished" :finished-text="finishedtext" @load="onLoad">
       <div class="content row a-c f-w j-b">
         <div class="content-item col a-c j-c " v-for="(item,index) in list" :key="index" @click="Detail(item.id,item.cat_id)">
-          <img class="content-item-img" :src="item.imgurl" alt="">
+          <img class="content-item-img" v-if="item.imgurl1" :src="item.imgurl1" alt="">
+          <img class="content-item-img" v-else :src="item.imgurl" alt="">
           <div class="content-item-text">{{item.title}}</div>
           <div class="content-item-des" v-if="item.describe">{{item.describe}}</div>
           <div class="content-item-des" v-else>{{item.title}}</div>

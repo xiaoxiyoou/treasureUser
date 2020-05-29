@@ -1,13 +1,13 @@
 <template>
-  <div class="container col j-b">
+  <div class="container col">
     <div class="bannerWrapper">
       <img class="banner" src="./banner.png" alt="">
-      <div class="avertwraper row a-c " @click="personalCenter">
+      <!-- <div class="avertwraper row a-c ">
         <img :src="userinfo.headimgurl" alt="">
         <div>{{userinfo.nickname}}</div>
       </div>
       <div class="shadow"></div>
-      <div class="center  row a-c j-c" @click="shopAdmin">赋予爱商家入口</div>
+      <div class="center  row a-c j-c" @click="shopAdmin">赋予爱商家入口</div> -->
     </div>
     <div class="item-wrapper row f-w j-c a-c">
       <div class="item col j-c a-c border-right " @click="info()">
@@ -46,7 +46,7 @@ export default {
     }
   },
   mounted() {
-    this._selfDetail()
+    // this._selfDetail()
     document.body.scrollTop = document.documentElement.scrollTop = 0
     console.log('sid', this.$route.query.sid)
     sessionStorage.setItem('sid', this.$route.query.sid)
@@ -91,7 +91,7 @@ export default {
       this.$router.push({ path: '/personalCenter' })
     },
     shopAdmin() {
-      window.location.href = "http://union.app.jzb768.com/#/LoginIn"
+      window.location.href = "http://b.fuyulove.com/3g/login.aspx"
     }
 
 
@@ -112,7 +112,7 @@ export default {
     position relative
     .banner
       width 100%
-      height 590px
+      height 420px
       vertical-align bottom
     .avertwraper
       position absolute
@@ -148,6 +148,7 @@ export default {
     color #ffffff
     font-size 30px
     height 500px
+    margin-top 30px
     .border-right
       border-right 2px solid rgba(255, 255, 255, 0.2)
     .border-bottom

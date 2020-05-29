@@ -623,8 +623,8 @@ export default {
     },
     // 分享
 
-    wxShare() {
-      let link = 'http://wx.app.jzb768.com/#' + localStorage.getItem('fromUrl')
+    wxShare(id) {
+      let link = 'http://wx.app.jzb768.com/#/show?carid=' + id
       axios.get('http://passport.fuyulove.com/action/jssdk', {
         params: {
           sid: 658,
@@ -1024,8 +1024,7 @@ export default {
           this._msglist(this.carid)
           this._getip(this.carid)
           this._sharemsg(this.carid)
-          this.wxShare()
-
+          this.wxShare(this.carid)
         } else if (res.code == 1) {
           this.$router.push({
             path: '/delete',
@@ -2041,7 +2040,8 @@ export default {
 .container .remindWrapper .title,
 .msgWrapper > .itemWrapper > .item > .info > .btmItem > .btn,
 .btmMsg > .item > .btn,
-.container .toShare .btmCon .sharebtm {
+.container .toShare .btmCon .sharebtm,
+.selectedTpl {
   background-color: $color;
 }
 </style>

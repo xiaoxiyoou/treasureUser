@@ -18,7 +18,7 @@
     <van-action-sheet :close-on-click-action="true" v-model="dropdown" :actions="catlist" cancel-text="取消" @select="Select" @cancel="Cancel" />
     <!-- <van-action-sheet :close-on-click-action="true" v-model="dropdownRank" :actions="dropdownRankList" cancel-text="取消" @select="onSelect" @cancel="onCancel" /> -->
     <van-list v-model="loading" :finished="finished" :finished-text="finishedtext" @load="onLoad">
-      <div class="top row a-c j-b"  v-for="(item,index) in list" :key="index">
+      <div class="top row a-c j-b" v-for="(item,index) in list" :key="index">
         <div class="personDetail row a-c">
           <div class="personCont" @click="mechanDeatil(item.id,item.iscred)">
             <img class="person" :src="item.imgurl" alt="">
@@ -48,7 +48,7 @@
         </div>
         <div class="phoneWrapper col j-c a-c" v-if="item.iscred == 1">
           <img class="phone" src="./../../assets/img/phoneBig.png" alt="" @click.stop="callPhone(item.mobile)">
-          <div>{{item.distance}}</div>
+          <!-- <div>{{item.mobile}}</div> -->
         </div>
       </div>
       <noMessage :noinfoShow="noinfoShow" />
@@ -97,11 +97,16 @@ export default {
 
   },
   methods: {
-
+   
     _shopList() {
+      console.log('lat',sessionStorage.getItem('latitude'))
+      console.log('lon',sessionStorage.getItem('longitude'))
+      console.log('catid',this.catid,)
+      console.log('cred',this.cred,)
       shopList({
         catid: this.catid,
-        // act: act,
+        lat: sessionStorage.getItem('latitude'),
+        lon: sessionStorage.getItem('longitude'),
         page: this.page,
         size: this.size,
         cred: this.cred

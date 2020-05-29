@@ -34,7 +34,7 @@ export default {
 
     GetCode: function (sid) {
      let redirectUrl = 'http://wx.app.jzb768.com/#' + this.$cookies.get('fromUrl')
-      // let redirectUrl = 'http://192.168.8.151:8081/Wxapp/#' + this.$cookies.get('fromUrl')
+      // let redirectUrl = 'http://192.168.8.151:8080/Wxapp/#' + this.$cookies.get('fromUrl')
       let url = 'http://passport.fuyulove.com/connect/authorize?sid=' + sid + '&redirect_uri=' + redirectUrl;
       window.location.href = url
     },

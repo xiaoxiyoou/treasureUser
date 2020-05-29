@@ -4,8 +4,8 @@
     <img class="pic" src="./pic1.png">
     <div>
       <div class="playCon">
-        <img class="pic" src="./pic7.png">
-        <img class="play" @click="videoPlay" src="./play.png">
+        <img class="pic " src="./pic7.png" >
+        <img class="play jump_pig_r" @click="videoPlay" src="./play.png">
       </div>
     </div>
     <img class="pic" src="./pic3.png" ref="pronbit">

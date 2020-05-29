@@ -57,6 +57,19 @@ export default function wxShare({
       desc: desc,
       imgUrl: 'http://wx.app.jzb768.com/picture/share.jpg',
     })
+    wx.getLocation({
+      type: 'wgs84',
+      success: function (res) {
+        console.log("res", res)
+        var latitude = res.latitude;
+        var longitude = res.longitude;
+        console.log("longitude", longitude)
+        sessionStorage.setItem("longitude", longitude);
+        sessionStorage.setItem("latitude", latitude);
+
+      }
+    });
+
     wx.error(function () {})
   }
 

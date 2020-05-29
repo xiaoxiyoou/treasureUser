@@ -4,7 +4,7 @@
     <img class="bg" src="./../../assets/img/bgTwo.png">
     <div class="top col a-c j-a">
       <img class="banner" src="./../../assets/img/bannerTwo.png">
-      <img class="play" @click="videoPlay" src="./../../assets/img/play.png">
+      <img class="play jump_pig_r" @click="videoPlay" src="./../../assets/img/play.png">
       <div class="text" @click="videoPlay">查看策划案详情</div>
     </div>
     <div class="content col a-c" ref="pronbit">

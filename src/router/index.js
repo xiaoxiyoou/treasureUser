@@ -57,7 +57,7 @@ const routes = [{
     name: 'service',
     component: () => import('pages/service/service'),
     meta: {
-      title: '家族宝',
+      title: '家族宝盒-服务',
       requireAuth: true,
       depth: 1
     }
