@@ -11,7 +11,7 @@
       <img class="title" src="./../../assets/img/free.png">
       <div class="item col a-c">
         <input class="name com" placeholder="请输入您的姓名" v-model="name" type="text">
-        <input class="tel com" placeholder="请输入手机号码" type="number" v-model="mobie">
+        <input class="tel com" placeholder="请输入手机号码" type="number" v-model="mobile">
         <input class="address com" placeholder="请选择您所在的城市" v-model="address" @click="areaShowList" readonly="readonly">
         <div class="receive row a-c">
           <img class="" src="./../../assets/img/noselect.png" v-if="select" @click="selectShow(false)">
@@ -56,7 +56,7 @@ export default {
       name: '',
       select: true,
       video: false,
-      mobie: '',
+      mobile: '',
       areaList: area,
       address: '',
       // 防止被弹起
@@ -107,10 +107,10 @@ export default {
       if (this.name == '') {
         Toast('请输入您的姓名')
         return false
-      } else if (this.mobie == '') {
+      } else if (this.mobile == '') {
         Toast('请输入您的电话')
         return false
-      } else if (!(/^1[345789]\d{9}$/.test(this.mobie))) {
+      } else if (!(/^1[345789]\d{9}$/.test(this.mobile))) {
         Toast('请输入正确电话号码')
         return false
       } else if (this.address == '') {
@@ -124,7 +124,7 @@ export default {
           title: '殡仪策划',
           type: 1,
           name: this.name,
-          mobie: this.mobie,
+          mobile: this.mobile,
           address: this.address
         }).then(res => {
           console.log('申请', res)

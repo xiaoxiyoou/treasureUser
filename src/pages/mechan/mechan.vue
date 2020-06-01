@@ -14,13 +14,12 @@
       </div>
       <!-- <img src="./search.png" alt="" @click="searchBar"> -->
     </div>
-
     <van-action-sheet :close-on-click-action="true" v-model="dropdown" :actions="catlist" cancel-text="取消" @select="Select" @cancel="Cancel" />
     <!-- <van-action-sheet :close-on-click-action="true" v-model="dropdownRank" :actions="dropdownRankList" cancel-text="取消" @select="onSelect" @cancel="onCancel" /> -->
     <van-list v-model="loading" :finished="finished" :finished-text="finishedtext" @load="onLoad">
       <div class="top row a-c j-b" v-for="(item,index) in list" :key="index">
-        <div class="personDetail row a-c">
-          <div class="personCont" @click="mechanDeatil(item.id,item.iscred)">
+        <div class="personDetail row a-c" @click="mechanDeatil(item.id,item.iscred)">
+          <div class="personCont">
             <img class="person" :src="item.imgurl" alt="">
             <div class="personTip row a-c j-c" v-if="item.iscred == 1">点击查看</div>
           </div>
@@ -68,7 +67,7 @@ export default {
       info: '',
       catlist: [],
       // menu: [{ name: '全部商家', act: 'nearby' }, { name: '分类', act: 'recom' }, { name: '排序', act: 'praise' }, { name: '筛选城商', act: '' }],
-      menu: [{ name: '全部商家', act: 'nearby' }, { name: '分类', act: 'recom' }, { name: '筛选城商', act: '' }],
+      menu: [{ name: '全部商家', act: 'nearby' }, { name: '分类', act: 'recom' }, { name: '筛选诚商', act: '' }],
       dropdownRankList: [{ name: '评价最高', act: 'praise' }, { name: '离我最近', act: 'nearby' }],
       index: 0,
       dropdown: false,
@@ -97,12 +96,12 @@ export default {
 
   },
   methods: {
-   
+    // 分类列表
     _shopList() {
-      console.log('lat',sessionStorage.getItem('latitude'))
-      console.log('lon',sessionStorage.getItem('longitude'))
-      console.log('catid',this.catid,)
-      console.log('cred',this.cred,)
+      // console.log('lat', sessionStorage.getItem('latitude'))
+      // console.log('lon', sessionStorage.getItem('longitude'))
+      // console.log('catid', this.catid)
+      // console.log('cred', this.cred)
       shopList({
         catid: this.catid,
         lat: sessionStorage.getItem('latitude'),
@@ -126,6 +125,7 @@ export default {
 
       })
     },
+    // 分类数据
     _shopItem() {
       shopItem().then(res => {
         console.log('分类', res)
@@ -177,13 +177,7 @@ export default {
       this.loading = false
 
     },
-    // 选择分类
-    personDetail(catid) {
-      this.loadState()
-      this.cred = ""
-      this.catid = catid
-      this._shopList()
-    },
+
     // 切换导航
     son(act, idx) {
       this.index = idx;
@@ -206,12 +200,29 @@ export default {
       }
 
     },
-    searchBar() {
-      this.$router.push({
-        path: './mechanSearch'
-      })
-
+    // 选择分类
+    Select(item) {
+      this.loadState()
+      console.log(item.id);
+      this.catid = item.id
+      this.act = ""
+      this._shopList()
     },
+    Cancel() {
+    },
+    // 选择分类
+    // personDetail(catid) {
+    //   this.loadState()
+    //   this.cred = ""
+    //   this.catid = catid
+    //   this._shopList()
+    // },
+    // searchBar() {
+    //   this.$router.push({
+    //     path: './mechanSearch'
+    //   })
+
+    // },
     // onCancel() {
     // },
     // onSelect(item) {
@@ -221,15 +232,7 @@ export default {
     //   this.catid = ""
     //   this._shopList()
     // },
-    Cancel() {
-    },
-    Select(item) {
-      this.loadState()
-      console.log(item.id);
-      this.catid = item.id
-      this.act = ""
-      this._shopList()
-    },
+
 
 
   },

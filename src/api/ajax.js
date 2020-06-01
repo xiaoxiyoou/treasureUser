@@ -10,12 +10,12 @@ let token = localStorage.getItem('token')
 //   obj = obj.substring(index + 1, obj.length);
 //   return obj;
 // }
-var sid
+var sid = 658
 // let fromUrl = localStorage.getItem('fromUrl')
 // if (fromUrl.search("sid") != -1) {
 //   sid = getCaption(fromUrl, 1)
 // } else {
-sid = 658
+// sid = 658
 // }
 console.log('ajaxsid', sid)
 export default function ajax(url = '', params = {}, type = 'GET') {

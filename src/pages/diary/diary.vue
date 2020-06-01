@@ -277,18 +277,18 @@ html {
 }
 
 .detail > .item > .mouth {
-  color:  $color;
+  color: $color;
 }
 .separate {
-  color:  $color;
+  color: $color;
 }
 .content > .item > .mouth {
   font-size: 30px;
-  color:  $color;
+  color: $color;
 }
 
 .day {
-  color:  $color;
+  color: $color;
 }
 
 .wek {
@@ -456,7 +456,7 @@ html {
   width: 1.4rem;
   height: 0.6rem;
   border-radius: 0.1rem;
-  background-color:  $color;
+  background-color: $color;
   color: #ffffff;
   font-size: 27px;
 }

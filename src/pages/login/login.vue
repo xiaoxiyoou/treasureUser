@@ -7,8 +7,7 @@ import axios from 'axios'
 export default {
   data() {
     return {
-      redirect: '',
-      sid: ''
+      sid: 658
     }
   },
   mounted() {
@@ -17,23 +16,18 @@ export default {
   methods: {
     _getCode() {
       let uid = this.getUrlParam('uid')
-      // let fromUrl = localStorage.getItem('fromUrl')
-      // if (fromUrl.search("sid") != -1) {
-      //   this.sid = this.getCaption(fromUrl, 1)
-      // } else {
-      this.sid = 658
-      // }
+
       console.log('uid', uid)
       console.log('sid', this.sid)
       if (uid === '' || uid === undefined || uid === null) {
         this.GetCode(this.sid)
       } else {
-        this.GetOpenId(uid, this.sid) 
+        this.GetOpenId(uid, this.sid)
       }
     },
 
     GetCode: function (sid) {
-     let redirectUrl = 'http://wx.app.jzb768.com/#' + this.$cookies.get('fromUrl')
+      let redirectUrl = 'http://wx.app.jzb768.com/#' + this.$cookies.get('fromUrl')
       // let redirectUrl = 'http://192.168.8.151:8080/Wxapp/#' + this.$cookies.get('fromUrl')
       let url = 'http://passport.fuyulove.com/connect/authorize?sid=' + sid + '&redirect_uri=' + redirectUrl;
       window.location.href = url
@@ -56,7 +50,6 @@ export default {
         localStorage.setItem('userid', userid)
         localStorage.setItem('token', token)
         localStorage.setItem('openid', openid)
-        // console.log(localStorage.getItem('fromUrl'))
         if (localStorage.getItem('fromUrl')) {
           this.$router.replace({
             path: localStorage.getItem('fromUrl')
@@ -77,11 +70,7 @@ export default {
       if (r != null) return decodeURI(r[2]);
       return null;
     },
-    getCaption(obj) {
-      var index = obj.lastIndexOf("=");
-      obj = obj.substring(index + 1, obj.length);
-      return obj;
-    }
+
 
 
 

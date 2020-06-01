@@ -3,7 +3,7 @@
     <img class="logo" src="./logo2.png" alt="">
     <img class="banner" src="./banner.png" alt="">
     <div class="toptext row a-c">
-      <span class="weight1">尊重、安抚、传承</span>
+      <span class="weight1" style="white-space:nowrap" >尊重、安抚、传承</span>
       <div>让我们一起献给亲人永恒的爱</div>
       <div class="spot" style="margin-left:5px"></div>
     </div>

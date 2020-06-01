@@ -153,7 +153,7 @@ export default {
           firstName: this.firstName,
           firstDeathdate: this.firstDeathdate,
           firstBirthday: this.firstBirthday,
-          sid:this.$route.query.sid
+          sid: this.$route.query.sid
 
         }).then(res => {
           console.log('创建', res)
@@ -195,7 +195,7 @@ export default {
       } else if (this.secondDeathdate == '') {
         Toast("请输入离世时间")
         return false
-      } else{
+      } else {
         add({
           cardtype: this.cardtype,
           firstName: this.firstName,
@@ -204,7 +204,7 @@ export default {
           secondName: this.secondName,
           secondBirthday: this.secondBirthday,
           secondDeathdate: this.secondDeathdate,
-          sid:this.$route.query.sid
+          sid: 658
         }).then(res => {
           console.log('创建', res)
           if (res.code == 0) {

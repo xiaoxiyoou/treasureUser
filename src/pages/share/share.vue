@@ -111,8 +111,8 @@ export default {
     .qrCodeCon
       position absolute
       border 1px solid #f5f5f5
-      right 5%
-      // transform translateX(-50%)
+      left 50%
+      transform translateX(-50%)
       background-color #ffffff
       width 180px
       height 180px

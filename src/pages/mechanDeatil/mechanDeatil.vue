@@ -26,22 +26,22 @@
           <img src="../../assets/img/dingwei.png" alt="">
           <div class="des row j-c a-c" @click="address()">{{info.address}}</div>
         </div>
-        <div class="distance">{{info.distance}}</div>
+        <!-- <div class="distance">{{info.distance}}</div> -->
       </div>
     </div>
     <div class="bar"></div>
     <div class="detail">
       <div class="item row">
-        <div class="title">法人姓名</div>
-        <div class="des">{{info.legalperson? info.legalperson:'暂无数据'}}</div>
+        <div class="title">联系人</div>
+        <div class="des">{{info.owner? info.owner:'暂无数据'}}</div>
       </div>
       <div class="item row">
-        <div class="title">成立时间</div>
-        <div class="des">{{info.establishdate? info.establishdate:'暂无数据'}}</div>
+        <div class="title">加入时间</div>
+        <div class="des">{{info.createdate | moment}}</div>
       </div>
-      <div class="item row">
-        <div class="title">职员人数</div>
-        <div class="des">{{info.personnel? info.personnel:'暂无数据'}}</div>
+      <div class="item row" @click.stop="callPhone">
+        <div class="title">联系电话</div>
+        <div class="des">{{info.mobile? info.mobile:'暂无数据'}}</div>
       </div>
     </div>
     <div class="detail">
@@ -50,10 +50,7 @@
         <div class="des">{{info.intro? info.intro:'暂无数据'}}</div>
       </div>
     </div>
-    <!-- <div class="btm row j-c a-c" @click="commentDetail">
-      <img class="" src="../../assets/img/message.png" alt="">
-      <div>市民评价</div>
-    </div> -->
+
   </div>
 
 </template>
@@ -94,7 +91,9 @@ export default {
     // 详情
     _shopDetail() {
       shopDetail({
-        id: this.$route.query.id
+        id: this.$route.query.id,
+        lat: sessionStorage.getItem('latitude'),
+        lon: sessionStorage.getItem('longitude'),
       }).then(res => {
         console.log('商家详情', res)
         this.info = res.data.info
@@ -104,17 +103,7 @@ export default {
 
       })
     },
-    commentDetail() {
-      this.$router.push({
-        path: './commentDetail',
-        query: {
-          mid: this.$route.query.id,
-          title: this.info.companyname,
-          type: 1
-        }
-      })
-
-    },
+    // 拨打电话
     callPhone() {
       window.location.href = 'tel:' + this.info.mobile
     }
@@ -196,6 +185,7 @@ export default {
       .title
         color #919191
         white-space nowrap
+        width 130px
       .des
         color #252525
         margin-left 42px

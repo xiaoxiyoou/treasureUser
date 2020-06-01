@@ -57,7 +57,7 @@ const routes = [{
     name: 'service',
     component: () => import('pages/service/service'),
     meta: {
-      title: '家族宝盒-服务',
+      title: '家族宝品牌服务',
       requireAuth: true,
       depth: 1
     }
@@ -234,7 +234,7 @@ const routes = [{
     name: 'about',
     component: () => import('pages/about/about'),
     meta: {
-      title: '家族宝盒-关于',
+      title: '家族宝品牌介绍',
       requireAuth: true,
       depth: 1
     },

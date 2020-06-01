@@ -49,6 +49,13 @@ export default {
 
 
   },
+  created() {
+    Toast.loading({
+      // message: '加载中...',
+      forbidClick: true,
+      duration: 0, // 持续展示 toast
+    });
+  },
   methods: {
     _fame() {
       fame({
@@ -88,13 +95,13 @@ export default {
 
     },
     create() {
-      this.$router.push({       
-         path: '/create',
-          query: {
+      this.$router.push({
+        path: '/create',
+        query: {
           sid: this.$route.query.sid,
 
-         }      
-        })
+        }
+      })
     },
     myRecall() {
       this.$router.push({

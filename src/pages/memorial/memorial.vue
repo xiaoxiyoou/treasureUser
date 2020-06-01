@@ -22,7 +22,7 @@
         </div>
         <div class="right row ">
           <div class="pre row a-c j-c" @click="pre">预览体验</div>
-          <div class="nomake row a-c j-c"  @click="nomake">立即制作</div>
+          <div class="make row a-c j-c"  @click="nomake">联系诚商</div>
         </div>
       </div>
     </div>
@@ -30,7 +30,7 @@
 
 </template>
 <script type="text/ecmascript-6">
-import { Toast } from 'vant'
+// import { Toast } from 'vant'
 export default {
   data() {
     return {
@@ -65,7 +65,11 @@ export default {
       window.location.href = 'http://wx.fuyulove.com/Obituary/index?id=xRJdXN5KgJgmtJCBI97Xig=='
     },
     nomake(){
-      Toast('成为商家可免费制作讣告')
+      // Toast('联络诚商免费制作讣告')
+      this.$router.push({
+        path: '/mechan',
+      
+      })
     }
 
 

@@ -10,10 +10,6 @@
         <img class="grid-item-icon" src="./box.png" alt="">
         <div class="grid-item-text">家族宝盒</div>
       </div>
-      <div class="grid-item col a-c j-b" @click="box(2)">
-        <img class="grid-item-icon" src="./luck.png" alt="">
-        <div class="grid-item-text">趋吉避凶</div>
-      </div>
       <div class="grid-item col a-c j-b" @click="box(3)">
         <img class="grid-item-icon" src="./funeral.png" alt="">
         <div class="grid-item-text">殡仪用品</div>
@@ -27,17 +23,19 @@
         <div class="grid-item-text">孝道用品</div>
       </div>
     </div>
+
     <van-list v-model="loading" :finished="finished" :finished-text="finishedtext" @load="onLoad">
-      <div class="content row a-c f-w j-b">
-        <div class="content-item col a-c j-c " v-for="(item,index) in list" :key="index" @click="Detail(item.id,item.cat_id)">
-          <img class="content-item-img" v-if="item.imgurl1" :src="item.imgurl1" alt="">
-          <img class="content-item-img" v-else :src="item.imgurl" alt="">
-          <div class="content-item-text">{{item.title}}</div>
-          <div class="content-item-des" v-if="item.describe">{{item.describe}}</div>
-          <div class="content-item-des" v-else>{{item.title}}</div>
+      <div class="proWrapper row f-w j-b">
+        <div class="item" v-for="(item,index) in list" :key="index" @click="Detail(item.id,item.cat_id)">
+          <img class="proImg" v-if="item.imgurl" :src="item.imgurl" alt="">
+          <img class="proImg" v-else src="./../../assets/img/noMsg.png" alt="">
+          <div class="title">{{item.title}}</div>
+          <div class="des" v-if="item.describe">{{item.describe}}</div>
+          <div class="des" v-else>{{item.title}}</div>
+          <div class="value"><span class="price">￥</span>{{item.price}}</div>
         </div>
-        <noMessage :noinfoShow="noinfoShow" />
       </div>
+      <noMessage :noinfoShow="noinfoShow" />
     </van-list>
   </div>
 
@@ -63,12 +61,7 @@ export default {
 
     }
   },
-  // created() {
-  //   Toast.loading({
-  //     forbidClick: true,
-  //     duration: 0, // 持续展示 toast
-  //   })
-  // },
+
   mounted() {
     document.body.scrollTop = document.documentElement.scrollTop = 0
     this._goodsList(this.catid)
@@ -111,7 +104,7 @@ export default {
         catid: catid,
       }).then(res => {
         console.log('分类产品列表', res)
-        this.list = res.data.list
+        this.list = this.list.concat(res.data.list)
         this.count = res.data.count
 
         Toast.clear();
@@ -185,33 +178,55 @@ export default {
       .grid-item-text
         color #b8275d
         font-size 25px
-  .content
-    padding 0 50px
-    .content-item:nth-of-type(odd)
-      border-right 1px solid #f5f5f5
-    .content-item
-      width 323px
-      border-top 1px solid #f5f5f5
-      padding 20px 5px
-      .content-item-img
-        width 163px
-        height 163px
-      .content-item-text
-        color #464646
-        font-size 28px
-        margin-top 8px
+  .proWrapper
+    width 750px
+    padding 0 32px
+    padding-top 20px
+    margin-top 20px
+    .noInfo
+      width 100%
+      height 446px
+      margin 60px auto
+    .item
+      overflow hidden
+      box-shadow 0px 0px 10px rgba(0, 0, 0, 0.2)
+      height 100%
+      margin-bottom 23px
+      width 336px
+      border-radius 10px
+      background-color #ffffff
+      .proImg
+        width 341px
+        height 341px
+        border-top-left-radius 10px
+        border-top-right-radius 10px
+      .title
+        color #111111
+        font-size 25px
+        padding-left 16px
+        margin-bottom 15px
+        margin-top 15px
         overflow hidden
         display -webkit-box
         -webkit-box-orient vertical
         -webkit-line-clamp 1
         text-overflow ellipsis
-      .content-item-des
-        color #bdbcbc
-        font-size 26px
+      .des
+        color #919191
+        font-size 22px
+        padding-left 16px
+        margin-bottom 15px
         overflow hidden
         display -webkit-box
         -webkit-box-orient vertical
         -webkit-line-clamp 1
         text-overflow ellipsis
-        margin-top 8px
+      .value
+        color #b93662
+        font-size 33px
+        padding-left 16px
+        padding-bottom 15px
+        .price
+          font-size 20px
+
 </style>

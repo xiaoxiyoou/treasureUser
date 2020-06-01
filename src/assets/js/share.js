@@ -1,5 +1,4 @@
 import Vue from 'vue'
-// import { getSdkData  } from 'api/index'
 import axios from 'axios'
 var wx = require('weixin-js-sdk')
 export default function wxShare({
@@ -40,7 +39,8 @@ export default function wxShare({
         'playVoice',
         'uploadVoice',
         'getLocalImgData',
-        'scanQRCode'
+        'scanQRCode',
+        'openLocation'
       ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
     })
     wx.ready(() => {
@@ -70,7 +70,9 @@ export default function wxShare({
       }
     });
 
-    wx.error(function () {})
+    wx.error(function () {
+      
+    })
   }
 
 

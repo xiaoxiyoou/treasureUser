@@ -1,5 +1,5 @@
 <template>
-  <div class="container col">
+  <div class="container col j-b">
     <div class="bannerWrapper">
       <img class="banner" src="./banner.png" alt="" />
       <!-- <div class="avertwraper row a-c ">
@@ -146,7 +146,7 @@ export default {
   .item-wrapper
     color #ffffff
     font-size 30px
-    margin-top 30px
+    // margin-top 30px
     height 500px
     .border-right
       border-right 2px solid rgba(255, 255, 255, 0.2)
