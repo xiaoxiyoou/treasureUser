@@ -66,6 +66,11 @@ export default {
       }).then(res => {
         console.log('模板', res)
         Toast(res.msg)
+        if (res.code == 0) {
+          setTimeout(() => {
+            this.$router.go(-1)
+          }, "1000");
+        }
 
       })
     },

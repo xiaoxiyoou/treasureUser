@@ -34,7 +34,7 @@
   </div>
 </template>
 <script type="text/ecmascript-6">
-import {  selfDetail } from 'api/index'
+import { selfDetail } from 'api/index'
 export default {
   data() {
     return {
@@ -56,7 +56,7 @@ export default {
         console.log('信息', res)
         if (res.code == 0) {
           this.userinfo = res.data.info
-        } 
+        }
         // else {
         //   this.$router.push({
         //     path: '/login',
@@ -80,16 +80,19 @@ export default {
 
     // },
     yiJing() {
-      this.$router.push({ path: '/yiJing' })
+      // this.$router.push({ path: '/yiJing' })
+      window.location.href = "https://mp.weixin.qq.com/s/dnnM0wvf8PRgsC4ZP3PFoQ"
     },
     brand() {
-      this.$router.push({ path: '/brand' })
+      // this.$router.push({ path: '/brand' })
+      window.location.href = "https://mp.weixin.qq.com/s/0AVhzf3XBcxTH-KhuV7vgA"
     },
     mechan() {
       this.$router.push({ path: '/mechan' })
     },
     intro() {
-      this.$router.push({ path: '/intro' })
+      // this.$router.push({ path: '/intro' })
+      window.location.href = "https://mp.weixin.qq.com/s/kH6uM-RbLMKFklmDvIYwSA"
     },
     personalCenter() {
       this.$router.push({ path: '/personalCenter' })

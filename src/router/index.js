@@ -250,26 +250,26 @@ const routes = [{
     },
 
   },
-  {
-    path: '/brand',
-    name: 'brand',
-    component: () => import('pages/brand/brand'),
-    meta: {
-      title: '品牌故事',
-      depth: 1
-    },
+  // {
+  //   path: '/brand',
+  //   name: 'brand',
+  //   component: () => import('pages/brand/brand'),
+  //   meta: {
+  //     title: '品牌故事',
+  //     depth: 1
+  //   },
 
-  },
-  {
-    path: '/yiJing',
-    name: 'yiJing',
-    component: () => import('pages/yiJing/yiJing'),
-    meta: {
-      title: '易经泰斗',
-      depth: 1
-    },
+  // },
+  // {
+  //   path: '/yiJing',
+  //   name: 'yiJing',
+  //   component: () => import('pages/yiJing/yiJing'),
+  //   meta: {
+  //     title: '易经泰斗',
+  //     depth: 1
+  //   },
 
-  },
+  // },
   {
     path: '/treasure',
     name: 'treasure',

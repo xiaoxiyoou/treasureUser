@@ -460,7 +460,10 @@ html {
   color: #ffffff;
   font-size: 27px;
 }
+.cancel{
+  font-size: 27px;
 
+}
 #textarea {
   width: 710px;
   height: 257px;

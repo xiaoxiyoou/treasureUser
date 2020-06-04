@@ -40,7 +40,7 @@ export default {
       ],
       isActive: 0,
       imgArr: ['zhuisitupian.png', 'zhuisitupian(2).png', 'zhuisitupian(3).png'],
-      QRcode: require('./QRcode.png'),
+      QRcode:"",
       imgUrl: '',
 
 
@@ -64,7 +64,10 @@ export default {
   },
   methods: {
     flowerSlecet(flag) {
-      Toast('邀请卡生成中');
+      Toast.loading({
+        forbidClick: true,
+        duration: 0, // 持续展示 toast
+      });
       this.isActive = flag
       setTimeout(() => {
         this.createImg()
@@ -111,8 +114,7 @@ export default {
     .qrCodeCon
       position absolute
       border 1px solid #f5f5f5
-      left 50%
-      transform translateX(-50%)
+      right 5%
       background-color #ffffff
       width 180px
       height 180px
@@ -169,7 +171,6 @@ export default {
       // border 1px solid #5aa967
 </style>
 <style lang="scss" scoped>
-
 .container .img-list .on {
   border: 1px solid $color;
 }

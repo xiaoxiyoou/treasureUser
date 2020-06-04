@@ -1,23 +1,23 @@
 <template>
   <div class="container">
     <div class="template  border row j-b a-c" @click="modify">
-      <div class="text coleorOne">编辑追思卡</div>
+      <div class="text coleorOne">编辑纪念堂</div>
       <div class="edit  item row a-c">
         <div class="name">修改</div>
         <div class="defalut"></div>
       </div>
     </div>
     <div class="template border row j-b a-c" @click="template">
-      <div class="text coleorOne">追思卡模板</div>
+      <div class="text coleorOne">纪念堂模板</div>
       <div class="formwork item row a-c">
-        <div class="name tempname">默认</div>
+        <div class="name tempname">{{info.tempname}}</div>
         <div class="defalut"></div>
       </div>
     </div>
     <div class="template border row j-b a-c" @click="music">
       <div class="text coleorOne">更换音乐</div>
       <div class="formwork item row a-c">
-        <div class="name tempname">默认</div>
+        <div class="name tempname">{{info.musicname}}</div>
         <div class="defalut"></div>
       </div>
     </div>
@@ -69,7 +69,8 @@ export default {
     return {
       checked: true,
       deleteWrapper: false,
-      ismsg: 0
+      ismsg: 0,
+      info:""
 
 
 

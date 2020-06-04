@@ -74,10 +74,10 @@ export default {
         // 加载状态结束
         this._goodsList(this.catid)
         this.loading = false;
+        console.log(this.list.length)
         if (this.list.length >= this.count) {
           this.finished = true;
         }
-
       }, 1000);
 
     },
@@ -106,6 +106,7 @@ export default {
         console.log('分类产品列表', res)
         this.list = this.list.concat(res.data.list)
         this.count = res.data.count
+        this.page = res.data.page
 
         Toast.clear();
         if (this.count == 0) {
@@ -228,5 +229,4 @@ export default {
         padding-bottom 15px
         .price
           font-size 20px
-
 </style>
