@@ -2,12 +2,12 @@
   <div class="container col j-b">
     <div class="bannerWrapper">
       <img class="banner" src="./banner.png" alt="">
-      <!-- <div class="avertwraper row a-c ">
+      <div class="avertwraper row a-c ">
         <img :src="userinfo.headimgurl" alt="">
         <div>{{userinfo.nickname}}</div>
       </div>
       <div class="shadow"></div>
-      <div class="center  row a-c j-c" @click="shopAdmin">赋予爱商家入口</div> -->
+      <!-- <div class="center  row a-c j-c" @click="shopAdmin">赋予爱商家入口</div> -->
     </div>
     <div class="item-wrapper row f-w j-c a-c">
       <div class="item col j-c a-c border-right " @click="info()">
@@ -46,7 +46,7 @@ export default {
     }
   },
   mounted() {
-    // this._selfDetail()
+    this._selfDetail()
     document.body.scrollTop = document.documentElement.scrollTop = 0
     console.log('sid', this.$route.query.sid)
     sessionStorage.setItem('sid', this.$route.query.sid)
@@ -58,12 +58,11 @@ export default {
         console.log('信息', res)
         if (res.code == 0) {
           this.userinfo = res.data.info
-        } 
-        // else {
-        //   this.$router.push({
-        //     path: '/login',
-        //   })
-        // }
+        }else {
+          this.$router.push({
+            path: '/login',
+          })
+        }
 
       })
 
@@ -112,7 +111,7 @@ export default {
     position relative
     .banner
       width 100%
-      height 420px
+      height 600px
       vertical-align bottom
     .avertwraper
       position absolute

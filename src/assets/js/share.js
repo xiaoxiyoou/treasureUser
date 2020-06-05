@@ -48,14 +48,14 @@ export default function wxShare({
         title: document.title,
         link: link,
         desc: desc,
-        imgUrl: 'http://wx.app.jzb768.com/picture/share.jpg',
+        imgUrl: 'http://wx.app.jzb768.com/picture/shareUser.jpg',
       })
     })
     wx.onMenuShareTimeline({
       title: document.title,
       link: link,
       desc: desc,
-      imgUrl: 'http://wx.app.jzb768.com/picture/share.jpg',
+      imgUrl: 'http://wx.app.jzb768.com/picture/shareUser.jpg',
     })
     wx.getLocation({
       type: 'wgs84',

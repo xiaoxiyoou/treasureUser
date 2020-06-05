@@ -667,14 +667,14 @@ export default {
             title: this.title,
             link: link,
             desc: "您的好友邀请您来一同追思",
-            imgUrl: 'http://wx.app.jzb768.com/picture/share.jpg',
+            imgUrl: 'http://wx.app.jzb768.com/picture/shareUser.jpg',
           })
         })
         wx.onMenuShareTimeline({
           title: this.title,
           link: link,
           desc: "您的好友邀请您来一同追思",
-          imgUrl: 'http://wx.app.jzb768.com/picture/share.jpg',
+          imgUrl: 'http://wx.app.jzb768.com/picture/shareUser.jpg',
         })
         wx.error(function () { })
       }
