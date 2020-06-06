@@ -619,7 +619,8 @@ export default {
       ImagePreview({
         images: [flag],
         closeable: true,
-        showIndex: false
+        showIndex: false,
+        closeOnPopstate:true
       });
     },
     // 分享

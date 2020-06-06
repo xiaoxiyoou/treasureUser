@@ -1,9 +1,12 @@
 <template>
   <div class="container">
     <News :visitCon="visitCon" />
-    <img class="bg" src="./../../assets/img/bgTwo.png">
+    <img class="bg" src="./bgTwo.png">
     <div class="top col a-c j-a">
-      <img class="banner" src="./../../assets/img/bannerTwo.png">
+      <img class="banner" src="./bannerTwo.png">
+      <div class="num-wrapper row j-c">
+        <div class="num col a-c j-c" v-for="(item,index) in total" :key="index">{{item}}</div>
+      </div>
       <img class="play jump_pig_r" @click="videoPlay" src="./../../assets/img/play.png">
       <div class="text" @click="videoPlay">查看策划案详情</div>
     </div>
@@ -25,8 +28,10 @@
       <img class="process" src="./../../assets/img/process.png">
       <img class="pic" src="./pic1.png" alt="">
       <img class="pic" src="./pic2.png" alt="">
-      <img class="pic" src="./pic3.png" alt="">
-      <img class="pic" src="./pic4.png" alt="">
+      <div class="servicetotalCon a-c" style="position:relative">
+        <img class="pic" src="./pic5.png" alt="">
+        <div class="servicetotal" style="">累计服务 <span class="num">{{servicetotal}}</span>位家属</div>
+      </div>
       <div class="bar"></div>
     </div>
     <div class="btmFix row a-c j-c" v-if="showBtn">
@@ -43,12 +48,15 @@
 </template>
 <script type="text/ecmascript-6">
 import { serviceapi, serviceGetapply } from 'api/index'
+import "assets/fonts/font.css";
 import area from 'assets/js/area';
 import { Toast } from 'vant'
 import News from 'components/News/News'
 export default {
   data() {
     return {
+      servicetotal: "",
+      total: "",
       visitCon: [
 
       ],
@@ -84,6 +92,10 @@ export default {
       }).then(res => {
         console.log('申请', res)
         this.visitCon = res.data.list
+        this.servicetotal = res.data.servicetotal
+        this.total = res.data.total.toString()
+
+
 
       })
     },
@@ -190,15 +202,31 @@ export default {
     color #ffffff
     font-size 38px
     height 805px
+    padding 100px 0 30px
     .banner
-      width 600px
-      height auto
+      width 549px
+      height 377px
       vertical-align bottom
+    .num-wrapper
+      position absolute
+      top 413px
+      width 547px
+      .num
+        width 48px
+        height 171px
+        font-family swige
+        background url('./numBg.png')
+        background-position center center
+        background-size contain
+        background-repeat no-repeat
+        font-size 80px
+        color #ffffff
+        padding-top 15px
+        margin 0 5px
     .play
       width 107px
       height 107px
   .content
-    // background-color #b2a189
     .title
       width 535px
       margin 40px auto
@@ -240,6 +268,18 @@ export default {
     .process
       width 679px
       margin 40px auto
+    .servicetotalCon
+      .servicetotal
+        position  absolute
+        z-index 10 
+        bottom  322px
+        text-align center
+        width 100%
+        color #ffffff
+        font-size 30px
+        .num
+          font-size 100px
+          font-family swige
     .personWraper
       padding 0 32px 100px
       width 100%

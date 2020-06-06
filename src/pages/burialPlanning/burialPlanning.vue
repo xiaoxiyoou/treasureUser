@@ -3,8 +3,14 @@
     <News :visitCon="visitCon" />
     <img class="pic" src="./pic1.png">
     <div>
-      <div class="playCon">
-        <img class="pic " src="./pic7.png" >
+      <div class="playCon col a-c">
+        <div class="row j-b">
+          <img class="left " src="./left.png">
+          <img class="right " src="./right.png">
+        </div>
+        <div class="num-wrapper row j-c">
+          <div class="num col a-c j-c" v-for="(item,index) in total" :key="index">{{item}}</div>
+        </div>
         <img class="play jump_pig_r" @click="videoPlay" src="./play.png">
       </div>
     </div>
@@ -26,7 +32,10 @@
     </div>
     <img class="pic" src="./pic4.png">
     <img class="pic" src="./pic5.png">
-    <img class="pic" src="./pic6.png">
+    <div class="servicetotalCon a-c" style="position:relative">
+      <img class="pic" src="./pic61.png">
+      <div class="servicetotal" style="">累计服务 <span class="num">{{servicetotal}}</span>位家属</div>
+    </div>
     <div class="bar"></div>
     <div class="btmFix row a-c j-c" v-if="showBtn"></div>
     <div class="btn row j-c a-c" v-if="showBtn" @click="scrollIntoView">立即申请</div>
@@ -44,9 +53,12 @@ import { Toast } from 'vant'
 import News from 'components/News/News'
 import { serviceapi, serviceGetapply } from 'api/index'
 import area from 'assets/js/area';
+import "assets/fonts/font.css";
 export default {
   data() {
     return {
+      servicetotal: '',
+      total: "",
       visitCon: [
 
       ],
@@ -85,6 +97,8 @@ export default {
       }).then(res => {
         console.log('申请', res)
         this.visitCon = res.data.list
+        this.servicetotal = res.data.servicetotal
+        this.total = res.data.total.toString()
 
       })
     },
@@ -193,7 +207,6 @@ input:-ms-input-placeholder {
   bottom 0
   background url('./bg.png')
   background-size 100% 100%
-  // background-color #b2a189
   .pic
     width 100%
     height auto
@@ -221,6 +234,32 @@ input:-ms-input-placeholder {
       vertical-align bottom
   .playCon
     position relative
+    margin-top 33px
+    .row
+      width 681px
+      .left
+        width 196px
+        height 431px
+      .right
+        width 472px
+        height 431px
+    .num-wrapper
+      position absolute
+      right 34px
+      top 68px
+      width 472px
+      .num
+        width 87px
+        height 129px
+        font-family swige
+        background url('./numBg.png')
+        background-position center center
+        background-size contain
+        background-repeat no-repeat
+        font-size 198px
+        color #7c7161
+        padding-top 20px
+        margin 0 15px
     .play
       width 107px
       height 107px
@@ -228,7 +267,6 @@ input:-ms-input-placeholder {
       right 220px
       top 240px
   .content
-    // background-color #b2a189
     .title
       width 535px
       margin 40px auto
@@ -267,6 +305,18 @@ input:-ms-input-placeholder {
         background-color #7c7161
         color #ffffff
         font-size 36px
+  .servicetotalCon
+    .servicetotal
+      position  absolute
+      z-index 10 
+      bottom  322px
+      text-align center
+      width 100%
+      color #ffffff
+      font-size 30px
+      .num
+        font-size 100px
+        font-family swige
     .process
       width 679px
       margin 40px auto
