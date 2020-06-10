@@ -32,7 +32,6 @@ export default {
       let url = 'http://passport.fuyulove.com/connect/authorize?sid=' + sid + '&redirect_uri=' + redirectUrl;
       window.location.href = url
     },
-
     GetOpenId(uid, sid) {
       axios.get('http://passport.fuyulove.com/sns/getoken', {
         method: 'get',

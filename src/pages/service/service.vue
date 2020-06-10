@@ -72,7 +72,7 @@ export default {
       this.$router.push({ path: '/funeralPlanning' })
     },
     mechan() {
-      window.location.href = "http://b.fuyulove.com/ShopActity/deathbed/index.html?shopId=658"
+      this.$router.push({ path: '/deathbed' })
     },
     comment() {
       this.$router.push({

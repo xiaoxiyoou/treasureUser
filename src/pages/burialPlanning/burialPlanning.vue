@@ -251,15 +251,15 @@ input:-ms-input-placeholder {
       .num
         width 87px
         height 129px
-        font-family swige
+        // font-family swige
         background url('./numBg.png')
         background-position center center
         background-size contain
         background-repeat no-repeat
-        font-size 198px
+        font-size 128px
         color #7c7161
-        padding-top 20px
-        margin 0 15px
+        padding-top 8px
+        margin 0 5px
     .play
       width 107px
       height 107px

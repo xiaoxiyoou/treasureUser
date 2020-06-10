@@ -217,6 +217,17 @@ const routes = [{
     },
 
   },
+  {
+    path: '/deathbed',
+    name: 'deathbed',
+    component: () => import('pages/deathbed/deathbed'),
+    meta: {
+      title: '临终关怀策划',
+      requireAuth: true,
+      depth: 1
+    },
+
+  },
 
   {
     path: '/delete',

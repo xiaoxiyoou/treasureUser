@@ -214,14 +214,14 @@ export default {
       .num
         width 48px
         height 171px
-        font-family swige
+        // font-family swige
         background url('./numBg.png')
         background-position center center
         background-size contain
         background-repeat no-repeat
-        font-size 80px
+        font-size 60px
         color #ffffff
-        padding-top 15px
+        padding-top 5px
         margin 0 5px
     .play
       width 107px

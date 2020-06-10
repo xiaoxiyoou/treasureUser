@@ -8,6 +8,9 @@ const BASE_URL = 'http://product.jzb768.com/'
 const URL = 'http://partner.fuyulove.com/'
 // 商家及其他接口
 const URL_APP = 'http://wx.app.jzb768.com/'
+const VIDEO_URL =  "https://wxappapi.fuyulove.com"
+// 视频
+export const videoList = (params) => ajax(VIDEO_URL + '/DeathbedConcernApi/DeathbedConcernList.ashx',params)
 // 获取用户数据  能更改
 export const selfDetail = (params) => ajax(URL_APP + 'action/userapi/self',params)
 // 服务首页功能
