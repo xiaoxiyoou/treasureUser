@@ -1,13 +1,13 @@
 <template>
   <div class="container col j-b">
-    <div class="bannerWrapper">
+    <div class="bannerWrapper"  @click="shopAdmin">
       <img class="banner" src="./banner.png" alt="" />
       <div class="avertwraper row a-c ">
         <img :src="userinfo.headimgurl" alt="">
         <div>{{userinfo.nickname}}</div>
       </div>
       <div class="shadow"></div>
-      <!-- <div class="center  row a-c j-c" @click="shopAdmin">赋予爱商家入口</div> -->
+      <!-- <div class="center  row a-c j-c">赋予爱商家入口</div> -->
     </div>
     <div class="item-wrapper row f-w j-c a-c">
       <div class="item col j-c a-c border-right" @click="intro()">
@@ -48,8 +48,8 @@ export default {
 
   },
   methods: {
-    shopAdmin() {
-      window.location.href = "http://b.fuyulove.com/3g/login.aspx"
+     shopAdmin() {
+      window.location.href = "http://wx.fuyulove.com/mySelf/index"
     },
     _selfDetail() {
       selfDetail().then(res => {

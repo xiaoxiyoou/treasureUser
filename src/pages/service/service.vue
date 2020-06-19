@@ -1,6 +1,6 @@
 <template>
   <div class="container col j-b">
-    <div class="bannerWrapper">
+    <div class="bannerWrapper" @click="shopAdmin">
       <img class="banner" src="./banner.png" alt="">
       <div class="avertwraper row a-c ">
         <img :src="userinfo.headimgurl" alt="">
@@ -90,7 +90,7 @@ export default {
       this.$router.push({ path: '/personalCenter' })
     },
     shopAdmin() {
-      window.location.href = "http://b.fuyulove.com/3g/login.aspx"
+      window.location.href = "http://wx.fuyulove.com/mySelf/index"
     }
 
 
