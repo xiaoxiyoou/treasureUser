@@ -34,7 +34,7 @@
     <img class="pic" src="./pic5.png">
     <div class="servicetotalCon a-c" style="position:relative">
       <img class="pic" src="./pic61.png">
-      <div class="servicetotal" style="">累计服务 <span class="num">{{servicetotal}}</span>位家属</div>
+      <div class="servicetotal" style="">累计服务<span class="num">{{servicetotal}}</span>位家属</div>
     </div>
     <div class="bar"></div>
     <div class="btmFix row a-c j-c" v-if="showBtn"></div>
@@ -251,14 +251,14 @@ input:-ms-input-placeholder {
       .num
         width 87px
         height 129px
-        // font-family swige
+        font-family 'FandolSong-B2189554dd020853'
         background url('./numBg.png')
         background-position center center
         background-size contain
         background-repeat no-repeat
-        font-size 128px
+        font-size 120px
         color #7c7161
-        padding-top 8px
+        padding-top 5px
         margin 0 5px
     .play
       width 107px
@@ -315,8 +315,7 @@ input:-ms-input-placeholder {
       color #ffffff
       font-size 30px
       .num
-        font-size 100px
-        font-family swige
+        font-size 60px
     .process
       width 679px
       margin 40px auto

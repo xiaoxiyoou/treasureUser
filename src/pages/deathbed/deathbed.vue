@@ -358,6 +358,7 @@ export default {
           height 91px
           background url('./numBg.png')
           background-position center center
+          font-family 'FandolSong-B2189554dd020853'
           background-size contain
           background-repeat no-repeat
           font-size 68px
@@ -426,9 +427,10 @@ export default {
       width 100%
       color #52aa5e
       font-size 30px
+      font-family 'FandolSong-B2189554dd020853'
       .num
         font-size 70px
-        font-family swige
+        font-family 'FandolSong-B2189554dd020853'
     .process
       width 679px
       margin 40px auto

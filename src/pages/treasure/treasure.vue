@@ -56,7 +56,8 @@ export default {
       page: 1,
       size: 10,
       count: '',
-      catid: 1
+      catid: 1,
+      listStatus:true
 
 
     }
@@ -98,26 +99,30 @@ export default {
     },
 
     _goodsList(catid) {
-      goodsList({
-        page: this.page,
-        size: this.size,
-        catid: catid,
-      }).then(res => {
-        console.log('分类产品列表', res)
-        this.list = this.list.concat(res.data.list)
-        this.count = res.data.count
-        this.page = res.data.page
+      if (this.listStatus) {
+        this.listStatus = false
 
-        Toast.clear();
-        if (this.count == 0) {
-          this.noinfoShow = true
-          this.finishedtext = ''
-        } else {
-          this.noinfoShow = false
-          this.finishedtext = '没有更多数据了'
-        }
+        goodsList({
+          page: this.page,
+          size: this.size,
+          catid: catid,
+        }).then(res => {
+          console.log('分类产品列表', res)
+          this.list = this.list.concat(res.data.list)
+          this.count = res.data.count
+          this.page = res.data.page
+          this.listStatus = true
+          Toast.clear();
+          if (this.count == 0) {
+            this.noinfoShow = true
+            this.finishedtext = ''
+          } else {
+            this.noinfoShow = false
+            this.finishedtext = '没有更多数据了'
+          }
 
-      })
+        })
+      }
     },
     box(flag) {
       this.loadState()

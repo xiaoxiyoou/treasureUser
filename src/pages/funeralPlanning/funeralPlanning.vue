@@ -30,7 +30,7 @@
       <img class="pic" src="./pic2.png" alt="">
       <div class="servicetotalCon a-c" style="position:relative">
         <img class="pic" src="./pic5.png" alt="">
-        <div class="servicetotal" style="">累计服务 <span class="num">{{servicetotal}}</span>位家属</div>
+        <div class="servicetotal" style="">累计服务<span class="num">{{servicetotal}}</span>位家属</div>
       </div>
       <div class="bar"></div>
     </div>
@@ -214,7 +214,7 @@ export default {
       .num
         width 48px
         height 171px
-        // font-family swige
+        font-family 'FandolSong-R218968df4e20853'
         background url('./numBg.png')
         background-position center center
         background-size contain
@@ -278,8 +278,7 @@ export default {
         color #ffffff
         font-size 30px
         .num
-          font-size 100px
-          font-family swige
+         font-size 60px
     .personWraper
       padding 0 32px 100px
       width 100%
