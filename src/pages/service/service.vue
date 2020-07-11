@@ -1,30 +1,42 @@
 <template>
   <div class="container col j-b">
-    <div class="bannerWrapper" @click="shopAdmin">
+    <div class="bannerWrapper" @click="personalCenter">
       <img class="banner" src="./banner.png" alt="">
       <div class="avertwraper row a-c ">
         <img :src="userinfo.headimgurl" alt="">
         <div>{{userinfo.nickname}}</div>
       </div>
       <div class="shadow"></div>
-      <!-- <div class="center  row a-c j-c" @click="shopAdmin">赋予爱商家入口</div> -->
+      <div class="center  row a-c j-c" @click="personalCenter">点击进入个人中心</div>
     </div>
-    <div class="item-wrapper row f-w j-c a-c">
+    <div class="itemWrapper row f-w j-b a-c">
       <div class="item col j-c a-c border-right " @click="info()">
-        <img src="./icon.png" alt="">
-        <div>安葬策划</div>
+        <img src="./icon1.png" alt="" />
+        <div class="text-wrap">
+          <div class="text1">安葬策划</div>
+          <div class="text2">BURIAL PLOT</div>
+        </div>
       </div>
       <div class="item col j-c a-c  " @click="person()">
-        <img src="./person.png" alt="">
-        <div>殡仪策划</div>
+        <img src="./icon2.png" alt="" />
+        <div class="text-wrap">
+          <div class="text1">殡仪策划</div>
+          <div class="text2">FUNERAL PLANNING</div>
+        </div>
       </div>
       <div class="item col j-c a-c border-right" @click="mechan()">
-        <img src="./shop.png" alt="">
-        <div>临终关怀</div>
+        <img src="./icon3.png" alt="" />
+        <div class="text-wrap">
+          <div class="text1">临终关怀</div>
+          <div class="text2">HOSPICE CARE</div>
+        </div>
       </div>
       <div class="item col j-c a-c " @click="comment()">
-        <img src="./comment.png" alt="">
-        <div>线上追思</div>
+        <img src="./icon4.png" alt="" />
+        <div class="text-wrap">
+          <div class="text1">线上追思</div>
+          <div class="text2">ONLINE MEMORIAL</div>
+        </div>
       </div>
 
     </div>
@@ -58,7 +70,7 @@ export default {
         console.log('信息', res)
         if (res.code == 0) {
           this.userinfo = res.data.info
-        }else {
+        } else {
           this.$router.push({
             path: '/login',
           })
@@ -91,6 +103,7 @@ export default {
     },
     shopAdmin() {
       window.location.href = "http://wx.fuyulove.com/mySelf/index"
+      
     }
 
 
@@ -106,12 +119,11 @@ export default {
   top 0px
   width 100%
   height 100%
-  background-color #b2a189
   .bannerWrapper
     position relative
     .banner
       width 100%
-      height 600px
+      height 549px
       vertical-align bottom
     .avertwraper
       position absolute
@@ -136,33 +148,50 @@ export default {
       position absolute
       width 270px
       height 50px
-      background-color #a9365d
+      background-color #a29076
       border-radius 25px
       right 13px
       bottom 25px
       color #ffffff
-      font-size 30px
-  .item-wrapper
-    // background-color #52aa5e
+      font-size 26px
+  .itemWrapper
     color #ffffff
+    padding 30px 35px
     font-size 30px
-    height 500px
-    // margin-top 30px
+    height auto
+    overflow scroll
+    position absolute
+    width 100%
+    bottom 96px
+    top 549px
     .border-right
       border-right 2px solid rgba(255, 255, 255, 0.2)
     .border-bottom
       border-bottom 2px solid rgba(255, 255, 255, 0.2)
     .item
+      position relative
       width 48%
-      height 100px
+      height 45%
+      border-radius 10px
+      background-color #a29076
+      .text-wrap
+        position absolute
+        top 20px
+        left 20px
+        .text1
+          font-size 30px
+        .text2
+          font-size 13px
       img
-        width 53px
-        margin-bottom 15px
+        width 115px
+        position absolute
+        bottom 0
+        right 0
   .bar
     width 100%
     height 96px
   .btm
-    background-color #797062
+    background-color #a29076
     position fixed
     bottom 0
     width 100%

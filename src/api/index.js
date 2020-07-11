@@ -146,7 +146,7 @@ export const emcee = (params) => ajax(URL + 'action/userapi/emcee',params)
 export const saveemcee = (params) => ajax(URL + 'action/userapi/saveemcee',params,'POST')
 
 // 保存用户信息
-export const saveself = (params) => ajax(URL + 'action/userapi/saveself',params,'POST')
+export const saveself = (params) => ajax(URL_APP + 'action/userapi/saveself',params,'POST')
 // 个人中心留言
 export const getmsg = (params) => ajax(URL + 'action/userapi/getmsg',params)
 // 获取浏览记录

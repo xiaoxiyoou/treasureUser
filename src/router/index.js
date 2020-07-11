@@ -303,6 +303,83 @@ const routes = [{
     },
 
   },
+  {
+    path: '/search',
+    name: 'search',
+    component: () => import('pages/search/search'),
+    meta: {
+      title: '搜索纪念堂',
+      requireAuth: true,
+      depth: 1
+    },
+
+  },
+  {
+    path: '/personalCenter',
+    name: 'personalCenter',
+    component: () => import('pages/personalCenter/personalCenter'),
+    meta: {
+      title: '个人中心',
+      requireAuth: true,
+      depth: 1
+    },
+
+  },
+  {
+    path: '/myEdit',
+    name: 'myEdit',
+    component: () => import('pages/personalCenter/myEdit/myEdit'),
+    meta: {
+      title: '编辑个人信息',
+      requireAuth: true,
+      depth: 1
+    },
+
+  },
+  {
+    path: '/myCollection',
+    name: 'myCollection',
+    component: () => import('pages/personalCenter/myCollection/myCollection'),
+    meta: {
+      title: '我的收藏',
+      requireAuth: true,
+      depth: 1
+    },
+
+  },
+  {
+    path: '/myBrowsing',
+    name: 'myBrowsing',
+    component: () => import('pages/personalCenter/myBrowsing/myBrowsing'),
+    meta: {
+      title: '最近浏览',
+      requireAuth: true,
+      depth: 1
+    },
+
+  },
+  {
+    path: '/myMessage',
+    name: 'myMessage',
+    component: () => import('pages/personalCenter/myMessage/myMessage'),
+    meta: {
+      title: '留言管理',
+      requireAuth: true,
+      depth: 1
+    },
+
+  },
+  {
+    path: '/deathManage',
+    name: 'deathManage',
+    component: () => import('pages/personalCenter/deathManage/deathManage'),
+    meta: {
+      title: '忌日管理',
+      requireAuth: true,
+      depth: 1
+    },
+
+  },
 
 ]
 

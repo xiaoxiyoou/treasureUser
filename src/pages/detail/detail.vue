@@ -196,7 +196,7 @@ export default {
     _Browse() {
       Browse({
         title: this.goodDetail.title,
-        url: 'http://b.fuyulove.com/wisdom/#/detail?id=' + this.goodDetail.id,
+        url: 'http://wx.app.jzb768.com/#/detail?id=' + this.goodDetail.id,
         img: this.goodDetail.imgurl
       }).then(res => {
         console.log('浏览记录', res)
@@ -210,7 +210,7 @@ export default {
         ctype: 0,
         title: this.goodDetail.title,
         img: this.goodDetail.imgurl,
-        url: 'http://b.fuyulove.com/wisdom/#/detail?id=' + this.goodDetail.id,
+        url: 'http://wx.app.jzb768.com/#/detail?id=' + this.goodDetail.id,
       }).then(res => {
         console.log('收藏', res)
         Toast(res.msg)

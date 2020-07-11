@@ -57,7 +57,7 @@ export default {
 }
 .deleteCon > .tip {
   margin-top: 160px;
-  color: #5aa967;
+  color: #a29076;
   font-size: 32px;
 }
 .deleteCon > .confirm {
@@ -65,7 +65,7 @@ export default {
   margin-bottom: 29px;
   width: 600px;
   height: 91px;
-  background-color: #5aa967;
+  background-color: #a29076;
   color: #ffffff;
   font-size: 36px;
   border-radius: 10px;

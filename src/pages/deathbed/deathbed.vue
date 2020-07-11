@@ -7,7 +7,7 @@
     <div class="top col a-c j-a">
       <div class="col a-c">
         <img class="peopleNum" src="./pic8.png">
-        <div class="num-wrapper row j-c">
+        <div class="num-wrapper row j-c a-c">
           <div class="num col a-c j-c" v-for="(item,index) in total" :key="index">{{item}}</div>
         </div>
       </div>
