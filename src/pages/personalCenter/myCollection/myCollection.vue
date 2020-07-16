@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="item-wrapper row  a-c van-hairline--bottom" v-for="(item,index) in list" :key="index" @click="viewDetail(item.url)">
+    <div class="item-wrapper row  a-c j-b van-hairline--bottom" v-for="(item,index) in list" :key="index" @click="viewDetail(item.url)">
       <div>
         <img class="" :src="item.img" alt="">
       </div>
@@ -78,10 +78,9 @@ export default {
       width 135px
       height 135px
       border-radius 5px
-      margin-right 26px
       display block
     .item
-      width 100%
+      width 500px
       height 135px
       .name
         font-size 27px

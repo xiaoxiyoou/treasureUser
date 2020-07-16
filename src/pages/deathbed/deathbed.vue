@@ -14,18 +14,18 @@
     </div>
     <!-- 视频 -->
     <div class="videoCon col a-c">
-      <img v-show="!videoShow" class="videoImg" src="./poster.png" alt="">
-      <video v-show="videoShow" class="video" id="video" ref="video" poster="./poster.jpg" webkit-playsinline="true" x-webkit-airplay="true" playsinline="true" x5-video-orientation="h5" x5-video-player-fullscreen="true" x5-playsinline preload="auto" controlslist="nodownload" controls="false" :src="FilePath">
+      <!-- <img v-show="!videoShow" class="videoImg" src="./poster.png" alt=""> -->
+      <video v-show="videoShow" class="video" id="video" ref="video" poster="./poster1.png" webkit-playsinline="true" x-webkit-airplay="true" playsinline="true" x5-video-orientation="h5" x5-video-player-fullscreen="true" x5-playsinline preload="auto" controlslist="nodownload" controls="false" :src="FilePath">
         <source id="source" :src="FilePath" type="video/mp4">
       </video>
-      <div class="viode-dec">
+      <!-- <div class="viode-dec">
         <div class="video-btm">孝子必修的五句话</div>
         <div class="video-text">您知道您的亲人最想听的5句话是什么吗？</div>
         <div class="video-text"> 亲人最希望您做的3件事是什么？</div>
       </div>
       <div class="video-select row j-b">
         <div class="video-select-item row a-c j-c" :class="{'video-select-item-hover ':isActive == index}" v-for="(item,index) in videoList" :key="index" @click="videoChange(item.FilePath,index)">{{item.Title.substring(item.Title.length-3)}}</div>
-      </div>
+      </div> -->
     </div>
     <div class="content col a-c" ref="pronbit">
       <div class="item col a-c">
@@ -86,7 +86,8 @@ export default {
       popupshow: false,
       videoShow: true,
       videoLength: localStorage.getItem("videoLength") || 0,
-      FilePath: 'http://edu.fg1413.com/VideoUpload/20190722/jzblzgh-1.mp4',
+      // FilePath: 'http://edu.fg1413.com/VideoUpload/20190722/jzblzgh-1.mp4',
+      FilePath: 'http://xiaozibl.com/fyl/jzb_gzh/28lzghch.mp4',
       videoList: [],
       servicetotal: "",
       total: "",
@@ -167,8 +168,8 @@ export default {
       }).then(res => {
         console.log('视频', res)
         this.videoList = res.Data
-        this.VideoStart()
-        this.VideoEnded()
+        // this.VideoStart()
+        // this.VideoEnded()
 
 
       })
@@ -271,13 +272,19 @@ export default {
 <style scoped>
 .videoCon {
   background-color: #f3e9e3;
-  margin-top: 60px;
+  margin-top: 100px;
+  padding-bottom: 50px;
 }
 
 #video,
 .videoImg {
   width: 690px;
-  height: 515px;
+  /* height: 391px; */
+  height: 100%;
+}
+#video{
+  object-fit:fill
+
 }
 .viode-dec {
   width: 690px;
@@ -358,7 +365,7 @@ export default {
           height 91px
           background url('./numBg.png')
           background-position center center
-          font-family 'FandolSong-B2189554dd020853'
+          // font-family 'FandolSong-B2189554dd020853'
           background-size contain
           background-repeat no-repeat
           font-size 68px

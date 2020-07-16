@@ -317,7 +317,7 @@ export default {
         Toast.clear();
         this.video = this.goodDetail.video
         this.audio = this.goodDetail.audio
-        // this._Browse()
+        this._Browse()
         this.$nextTick(() => {
           window.addEventListener('scroll', this.handleScroll)
           window.addEventListener('scroll', this.handleScroll2)

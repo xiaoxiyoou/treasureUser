@@ -38,7 +38,7 @@
     </div>
     <div class="btn row j-c a-c" @click="scrollIntoView" v-if="showBtn">立即申请</div>
     <!-- 视频 -->
-    <video class="video" ref="video" controls src="http://edu.fg1413.com/webvideo/jzbsh.mp4" v-show="video"></video>
+    <video class="video" ref="video" controls src="http://xiaozibl.com/fyl/jzb_gzh/29byfwch.mp4" v-show="video"></video>
     <!-- 城市选择 -->
     <van-popup v-model="areaShow" position="bottom">
       <van-area :area-list="areaList" title="请选择地址" @confirm="adConfirm" @cancel="adcancel" />
@@ -214,7 +214,7 @@ export default {
       .num
         width 48px
         height 171px
-        font-family 'FandolSong-R218968df4e20853'
+        // font-family 'FandolSong-R218968df4e20853'
         background url('./numBg.png')
         background-position center center
         background-size contain

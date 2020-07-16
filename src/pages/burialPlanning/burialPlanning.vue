@@ -251,12 +251,12 @@ input:-ms-input-placeholder {
       .num
         width 87px
         height 129px
-        font-family 'FandolSong-B2189554dd020853'
+        // font-family 'FandolSong-B2189554dd020853'
         background url('./numBg.png')
         background-position center center
         background-size contain
         background-repeat no-repeat
-        font-size 120px
+        font-size 105px
         color #7c7161
         padding-top 5px
         margin 0 5px
