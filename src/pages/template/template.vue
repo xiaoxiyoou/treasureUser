@@ -11,23 +11,33 @@
         </div>
       </div>
     </div>
+    <div class="template-wrapper" @click="cropShow(true,1)">
+      <div class="item">
+        <img class="banner" src="./upImg.png" alt="">
+      </div>
+    </div>
     <div class="btm row">
       <div class="preview row j-c a-c" @click="show2">预览模板</div>
       <div class="confirm row j-c a-c" @click="_uptemplate">确认模板</div>
     </div>
+    <upImg :showCrop="showCrop" :fixedNumber="fixedNumber" @cropShow="cropShow" @photoUp="photoUp" />
   </div>
 
 </template>
 <script type="text/ecmascript-6">
 import { setinfo, templist, uptemplate } from 'api/index'
 import { Toast } from 'vant'
+import upImg from 'components/upImg/upImg'
 export default {
   data() {
     return {
       list: [],
       isActive: 0,
       tempid: '',
-      tempidselcted: ''
+      tempidselcted: '',
+      fixedNumber: [0.1, 0.18],
+      showCrop: false,
+      tempurl: ''
 
 
 
@@ -41,11 +51,31 @@ export default {
 
   },
   methods: {
+    // 选图
+    photoUp(flag) {
+      Toast.clear();
+      // this.firstImgurl = flag
+      this.tempurl = flag
+      this.tempid = 0
+      this._uptemplate()
+      this._templist()
+
+    },
+    // 上传图片
+    cropShow(flag, cropstate) {
+      console.log(cropstate)
+      if (cropstate) {
+        this.cropstate = cropstate
+      }
+      this.showCrop = flag
+
+
+    },
     // 切换
-    select(tempid) {
+    select(tempid, tempurl) {
       this.isActive = tempid
       this.tempid = tempid
-
+      this.tempurl = tempurl
     },
     // 获取模板
     _templist() {
@@ -59,13 +89,14 @@ export default {
     // 换模板
     _uptemplate() {
       uptemplate({
+        tempurl: this.tempurl,
         carid: this.$route.query.carid,
         tempid: this.tempid
       }).then(res => {
         console.log('选择模板', res)
         if (res.code == 0) {
           this.tempidselcted = this.tempid
-          Toast('确认模板成功')
+          Toast('更换模板成功')
         }
       })
     },
@@ -79,6 +110,7 @@ export default {
         this.isActive = res.data.info.tempid
         this.tempid = res.data.info.tempid
         this.tempidselcted = res.data.info.tempid
+        this.tempurl = res.data.info.tempurl
 
       })
     },
@@ -98,6 +130,7 @@ export default {
 
   },
   components: {
+    upImg
 
   }
 }
@@ -109,6 +142,7 @@ export default {
   height: 100%;
   background: #ffffff;
 }
+
 .top {
   height: 94px;
   padding: 0 19px 0 29px;

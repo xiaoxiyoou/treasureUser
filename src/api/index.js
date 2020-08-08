@@ -159,3 +159,9 @@ export const Collect = (params) => ajax(URL + 'action/serviceapi/Collect',params
 export const getCollect = (params) => ajax(URL + 'action/serviceapi/getCollect',params)
 // 删除收藏
 export const FCollect = (params) => ajax(URL + 'action/serviceapi/FCollect',params)
+// 纪念堂搜索接口：
+export const search = (params) => ajax(URL + 'action/memorapi?action=search',params,'POST')
+// 获取纪念堂搜索历史
+export const getsearch = (params) => ajax(URL + 'action/memorapi?action=getsearch',params,'POST')
+// 清理搜索历史接口
+export const delsearch = (params) => ajax(URL + 'action/memorapi?action=delsearch',params,'POST')

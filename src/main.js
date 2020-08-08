@@ -11,6 +11,7 @@ import share from 'assets/js/share'
 import router from './router'
 import VueCookies from 'vue-cookies'
 Vue.config.productionTip = false
+
 Vue.prototype.$axios = axios
 Vue.prototype.$cookies = VueCookies
 import moment from 'moment'

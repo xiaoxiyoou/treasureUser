@@ -10,7 +10,8 @@
     <div class="template border row j-b a-c" @click="template">
       <div class="text coleorOne">纪念堂模板</div>
       <div class="formwork item row a-c">
-        <div class="name tempname">{{info.tempname}}</div>
+        <div class="name tempname" v-if="info.tempid != 0">{{info.tempname}}</div>
+        <div class="name tempname" v-else>自定义模板</div>
         <div class="defalut"></div>
       </div>
     </div>
@@ -70,7 +71,7 @@ export default {
       checked: true,
       deleteWrapper: false,
       ismsg: 0,
-      info:""
+      info: ""
 
 
 

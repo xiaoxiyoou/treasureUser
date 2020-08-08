@@ -50,7 +50,8 @@ export default {
         autoCropWidth: 300,
         // autoCropHeight: ,
         centerBox: false,
-        high: true
+        high: true,
+        maxImgSize: 3000 // 图片最大像
       },
       isShowCropper: false //是否显示截图框
     }
@@ -213,6 +214,7 @@ export default {
     color #ffffff
     z-index 100
   .bottom-button
+    // background-color #b9a484
     position fixed
     bottom 0
     width 100%
@@ -229,6 +231,7 @@ export default {
       font-size 25px
       .word
         white-space nowrap
+        font-size 26px
       img
         width 40px
         height 40px

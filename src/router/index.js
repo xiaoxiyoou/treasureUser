@@ -303,17 +303,7 @@ const routes = [{
     },
 
   },
-  {
-    path: '/search',
-    name: 'search',
-    component: () => import('pages/search/search'),
-    meta: {
-      title: '搜索纪念堂',
-      requireAuth: true,
-      depth: 1
-    },
 
-  },
   {
     path: '/personalCenter',
     name: 'personalCenter',
@@ -375,6 +365,17 @@ const routes = [{
     component: () => import('pages/personalCenter/deathManage/deathManage'),
     meta: {
       title: '忌日管理',
+      requireAuth: true,
+      depth: 1
+    },
+
+  },
+  {
+    path: '/searchHall',
+    name: 'searchHall',
+    component: resolve=>(require(['pages/searchHall/searchHall'],resolve)),
+    meta: {
+      title: '搜索纪念堂',
       requireAuth: true,
       depth: 1
     },

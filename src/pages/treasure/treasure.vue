@@ -57,30 +57,39 @@ export default {
       size: 10,
       count: '',
       catid: 1,
-      listStatus:true
-
+      listStatus: true,
+      onLoadtatus: false
 
     }
   },
-
+  created() {
+  },
   mounted() {
     document.body.scrollTop = document.documentElement.scrollTop = 0
-    this._goodsList(this.catid)
+    this._goodsList1(1)
+    this._goodsList1(3)
+    this._goodsList1(4)
+    setTimeout(() => {
+      this._goodsList1(6)
+    }, "500");
 
 
   },
   methods: {
-    onLoad() {
-      setTimeout(() => {
-        // 加载状态结束
-        this._goodsList(this.catid)
-        this.loading = false;
-        console.log(this.list.length)
-        if (this.list.length >= this.count) {
-          this.finished = true;
-        }
-      }, 1000);
 
+    onLoad() {
+      if (this.onLoadtatus) {
+        setTimeout(() => {
+          // 加载状态结束
+          this._goodsList(this.catid)
+          this.loading = false;
+          console.log(this.list.length)
+          if (this.list.length >= this.count) {
+            this.finished = true;
+          }
+        }, 1000);
+
+      }
     },
     // 清除下拉加载状态
     loadState() {
@@ -97,8 +106,22 @@ export default {
       })
       localStorage.setItem("catId", catId)
     },
+    _goodsList1(catid) {
+      goodsList({
+        page: 1,
+        size: 100,
+        catid: catid,
+      }).then(res => {
+        console.log('分类产品列表', res)
+        this.list = this.list.concat(res.data.list)
+        this.finishedtext = '没有更多数据了'
+         this.finished = true;
+        Toast.clear();
 
+      })
+    },
     _goodsList(catid) {
+      this.onLoadtatus = true
       if (this.listStatus) {
         this.listStatus = false
 

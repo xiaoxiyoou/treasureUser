@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <img class="noinfo" src="./created.png" alt="" v-if="noinfo">  
+    <img class="noinfo" src="./created.png" alt="" v-if="noinfo">
     <div class="wrapper ">
       <div class="itemWrapper  row van-hairline--bottom" v-for="(item,index) in list" :key="index">
         <div class="previewCon  row a-c" @click="show(item.id)">
@@ -8,7 +8,8 @@
           <div class="previewTip"></div>
         </div>
         <div class="titleImgCon">
-          <img class="titleImg" :src="item.imgurl" alt="">
+          <img class="titleImg" :src="item.imgurl" alt="" v-if="item.tempid != 0">
+          <img class="titleImg" :src="item.tempurl" alt="" v-else>
           <div class="titleText  row a-c j-c" @click="modify(item.id)">编辑</div>
         </div>
         <div class="itemCont col j-a">
@@ -49,7 +50,7 @@ export default {
   data() {
     return {
       list: [],
-      noinfo:false
+      noinfo: false
 
 
 
@@ -61,7 +62,7 @@ export default {
 
 
   },
-   created() {
+  created() {
     Toast.loading({
       forbidClick: true,
       duration: 0, // 持续展示 toast
@@ -120,10 +121,10 @@ export default {
       }).then(res => {
         console.log('追思卡', res)
         this.list = res.data.list
-        if(!this.list.length){
+        if (!this.list.length) {
           this.noinfo = true
         }
-         Toast.clear();
+        Toast.clear();
       })
     },
 
@@ -140,7 +141,7 @@ export default {
   width: 100%;
   height: 100%;
 }
-.noinfo{
+.noinfo {
   width: 535px;
   height: 956px;
   display: block;
@@ -171,14 +172,14 @@ export default {
   position: absolute;
   right: 24px;
   top: 15px;
-  color:  $color;
+  color: $color;
   font-size: 28px;
 }
 .previewTip {
   width: 16px;
   height: 16px;
-  border-top: 2px solid  $color;
-  border-right: 2px solid  $color;
+  border-top: 2px solid $color;
+  border-right: 2px solid $color;
   transform: rotate(45deg);
 }
 
@@ -267,7 +268,7 @@ export default {
   width: 198px;
   height: 50px;
   border-radius: 5px;
-  background-color:  $color;
+  background-color: $color;
   color: #ffffff;
   font-size: 28px;
   margin-left: 42px;
@@ -283,7 +284,7 @@ export default {
   width: 690px;
   height: 94px;
   color: #ffffff;
-  background-color:  $color;
+  background-color: $color;
   border-radius: 10px;
   font-size: 35px;
 }

@@ -32,10 +32,10 @@
             <div class="city">{{item.chengshi}}</div>
             <div class="row j-b a-c">
               <div class="mobile" @click.stop="callPhone(item.mobile)">{{item.mobile}}</div>
-              <div class="row a-c" @click.stop="address(item.lat,item.lon,item.orgname,item.address)">
+              <!-- <div class="row a-c" @click.stop="address(item.lat,item.lon,item.orgname,item.address)">
                 <img class="address" src="./address.png" alt="">
                 <div class="distance">{{item.distance}}</div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -51,6 +51,7 @@ import { shopList, shopItem } from 'api/index'
 var wx = require('weixin-js-sdk')
 import { Toast } from 'vant'
 import noMessage from 'components/noMessage/noMessage'
+import { share } from 'assets/js/shareDetail.js'
 export default {
   data() {
     return {
@@ -81,12 +82,13 @@ export default {
   },
   mounted() {
     document.body.scrollTop = document.documentElement.scrollTop = 0
-
+    share('点击查看当地联盟商家', 'http://wx.app.jzb768.com/#/mechan', '家族宝联盟商家', 'http://wx.app.jzb768.com/picture/shareUser.jpg')
     this._shopList()
     this._shopItem()
 
   },
   methods: {
+
     // 地址
     address(latitude, longitude, name, address) {
       wx.openLocation({

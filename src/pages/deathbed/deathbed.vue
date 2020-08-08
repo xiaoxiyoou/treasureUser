@@ -79,6 +79,7 @@ import { Toast } from 'vant'
 import News from 'components/News/News'
 import { serviceapi, serviceGetapply, videoList } from 'api/index'
 import area from 'assets/js/area';
+import { share } from 'assets/js/shareDetail.js'
 export default {
   data() {
     return {
@@ -119,7 +120,7 @@ export default {
         this.showBtn = true
       }
     }
-
+    share('免费领取全套临终关怀策划书', 'http://wx.app.jzb768.com/#/deathbed', '免费获得家族宝品牌策划服务', 'http://wx.app.jzb768.com/picture/shareUser.jpg')
 
   },
   methods: {
@@ -282,9 +283,8 @@ export default {
   /* height: 391px; */
   height: 100%;
 }
-#video{
-  object-fit:fill
-
+#video {
+  object-fit: fill;
 }
 .viode-dec {
   width: 690px;

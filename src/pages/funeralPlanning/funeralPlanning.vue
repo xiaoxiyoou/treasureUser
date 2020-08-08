@@ -52,6 +52,7 @@ import "assets/fonts/font.css";
 import area from 'assets/js/area';
 import { Toast } from 'vant'
 import News from 'components/News/News'
+import { share } from 'assets/js/shareDetail.js'
 export default {
   data() {
     return {
@@ -84,6 +85,7 @@ export default {
         this.showBtn = true
       }
     }
+    share('免费领取全套殡仪策划书', 'http://wx.app.jzb768.com/#/funeralPlanning', '免费获得家族宝品牌策划服务', 'http://wx.app.jzb768.com/picture/shareUser.jpg')
   },
   methods: {
     _serviceGetapply() {
@@ -270,15 +272,15 @@ export default {
       margin 40px auto
     .servicetotalCon
       .servicetotal
-        position  absolute
-        z-index 10 
-        bottom  322px
+        position absolute
+        z-index 10
+        bottom 322px
         text-align center
         width 100%
         color #ffffff
         font-size 30px
         .num
-         font-size 60px
+          font-size 60px
     .personWraper
       padding 0 32px 100px
       width 100%
