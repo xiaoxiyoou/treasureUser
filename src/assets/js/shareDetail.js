@@ -59,18 +59,18 @@ export const share = (
       desc: desc,
       imgUrl: imgUrl,
     })
-    wx.getLocation({
-      type: 'wgs84',
-      success: function (res) {
-        console.log("res", res)
-        var latitude = res.latitude;
-        var longitude = res.longitude;
-        console.log("longitude", longitude)
-        sessionStorage.setItem("longitude", longitude);
-        sessionStorage.setItem("latitude", latitude);
+    // wx.getLocation({
+    //   type: 'wgs84',
+    //   success: function (res) {
+    //     console.log("res", res)
+    //     var latitude = res.latitude;
+    //     var longitude = res.longitude;
+    //     console.log("longitude", longitude)
+    //     sessionStorage.setItem("longitude", longitude);
+    //     sessionStorage.setItem("latitude", latitude);
 
-      }
-    });
+    //   }
+    // });
 
     wx.error(function () {
 

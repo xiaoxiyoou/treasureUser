@@ -63,15 +63,11 @@ export default {
     }
   },
   created() {
+    this._goodsList1(1)
   },
   mounted() {
     document.body.scrollTop = document.documentElement.scrollTop = 0
-    this._goodsList1(1)
-    this._goodsList1(3)
-    this._goodsList1(4)
-    setTimeout(() => {
-      this._goodsList1(6)
-    }, "500");
+
 
 
   },
@@ -106,6 +102,9 @@ export default {
       })
       localStorage.setItem("catId", catId)
     },
+
+
+
     _goodsList1(catid) {
       goodsList({
         page: 1,
@@ -114,8 +113,46 @@ export default {
       }).then(res => {
         console.log('分类产品列表', res)
         this.list = this.list.concat(res.data.list)
+        this._goodsList3()
+
+      })
+    },
+    _goodsList3() {
+      goodsList({
+        page: 1,
+        size: 100,
+        catid: 3,
+      }).then(res => {
+        console.log('分类产品列表', res)
+        this.list = this.list.concat(res.data.list)
+
+        this._goodsList4()
+
+      })
+    },
+    _goodsList4() {
+      goodsList({
+        page: 1,
+        size: 100,
+        catid: 4,
+      }).then(res => {
+        console.log('分类产品列表', res)
+        this.list = this.list.concat(res.data.list)
+
+        this._goodsList6()
+
+      })
+    },
+    _goodsList6() {
+      goodsList({
+        page: 1,
+        size: 100,
+        catid: 6,
+      }).then(res => {
+        console.log('分类产品列表', res)
+        this.list = this.list.concat(res.data.list)
         this.finishedtext = '没有更多数据了'
-         this.finished = true;
+        this.finished = true;
         Toast.clear();
 
       })

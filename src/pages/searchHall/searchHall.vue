@@ -26,10 +26,10 @@
         <div class="hot-item col j-c a-c">暂无~</div>
       </div>
     </div>
-    <div class="wrapper " v-if="!searchRecord">
+    <div class="conwrapper " v-if="!searchRecord">
       <noMessage :noinfoShow="noinfoShow" />
-      <div class="itemWrapper  row van-hairline--bottom" v-for="(item,index) in searchList" :key="index">
-        <div class="previewCon  row a-c" @click="show(item.id)">
+      <div class="itemWrapper  row van-hairline--bottom" v-for="(item,index) in searchList" :key="index"  @click="show(item.id)">
+        <div class="previewCon  row a-c">
           <div class="preview">预览</div>
           <div class="previewTip"></div>
         </div>
@@ -47,7 +47,7 @@
 
         </div>
       </div>
-      <div class="barBtm col a-c j-c"></div>
+      <!-- <div class="barBtm col a-c j-c"></div> -->
     </div>
   </div>
 
@@ -175,15 +175,18 @@ export default {
         margin-right 22px
 </style>
 <style scoped>
-.wrapper {
-  background-color: #f5f5f5;
+.conwrapper {
+  background-color: #ffffff;
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }
 .itemWrapper {
   width: 100%;
   padding: 25px 0;
   background-color: #ffffff;
   position: relative;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 .previewCon {

@@ -10,10 +10,11 @@
           <div class="text">{{item.title}}</div>
         </div>
       </div>
-    </div>
-    <div class="template-wrapper" @click="cropShow(true,1)">
-      <div class="item">
-        <img class="banner" src="./upImg.png" alt="">
+      <div class="template-wrapper" @click="cropShow(true,1)">
+        <div class="item">
+          <img class="banner" src="./upImg.png" alt="">
+          <div class="text"></div>
+        </div>
       </div>
     </div>
     <div class="btm row">
@@ -167,6 +168,7 @@ export default {
 }
 .template {
   margin-top: 35px;
+  margin-bottom: 150px;
 }
 .template-wrapper {
   position: relative;
@@ -202,6 +204,7 @@ export default {
   color: $color;
   width: 50%;
   height: 100%;
+  background: #ffffff;
 }
 .btm > .confirm {
   color: #ffffff;

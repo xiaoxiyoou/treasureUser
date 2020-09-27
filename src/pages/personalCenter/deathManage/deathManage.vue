@@ -4,7 +4,8 @@
       <div class="item-content" v-for="(itemTwo,indexTwo) in item.renlist" :key="indexTwo">
         <div class="item-wrapper row van-hairline--bottom">
           <div>
-            <img class="pic" :src="item.imgurl" alt="">
+            <img class="pic" :src="item.imgurl" alt="" v-if="item.tempid != 0">
+            <img class="pic" :src="item.tempurl" alt="" v-else>
           </div>
           <div class="list col j-b">
             <div class="name">{{itemTwo.name}}的追思纪念堂</div>
@@ -49,7 +50,7 @@ export default {
   data() {
     return {
       list: [],
-       noinfoShow: false
+      noinfoShow: false
 
 
 
@@ -78,7 +79,7 @@ export default {
         this.list = res.data.list
 
         console.log(this.renlist)
-         if (res.data.count) {
+        if (res.data.count) {
           this.noinfoShow = false
         } else {
           this.noinfoShow = true
@@ -88,7 +89,7 @@ export default {
 
   },
   components: {
-     noMessage
+    noMessage
 
   }
 }

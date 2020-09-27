@@ -66,7 +66,6 @@ export default {
       Toast.loading({
         message: '加载中...',
         forbidClick: true,
-        duration: 0, // 持续展示 toast
       });
       wx.ready(() => {
         wx.chooseImage({
@@ -214,9 +213,9 @@ export default {
     color #ffffff
     z-index 100
   .bottom-button
-    // background-color #b9a484
     position fixed
-    bottom 0
+    bottom 110px
+    padding 0 60px
     width 100%
     height 160px
     display flex

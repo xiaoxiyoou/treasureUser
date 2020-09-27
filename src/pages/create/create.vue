@@ -37,8 +37,9 @@
       </div>
       <div class="bar"></div>
 
-      <div class="btmCon row j-c a-c" @click="toPerson">
-        <div class="btm row j-c a-c">创建</div>
+      <div class="btmCon col j-c a-c" >
+        <div class="btm row j-c a-c" @click="toPerson">创建纪念堂</div>
+        <div class="btm row j-c a-c" @click="myRecall">我的纪念堂</div>
       </div>
       <!-- <div class="btmCon row j-c a-c" v-if="mechan"  @click="toMechan">
         <div class="btm row j-c a-c">确认提交</div>
@@ -126,6 +127,11 @@ export default {
     toMechan() {
       this.$router.push({
         path: './mechan'
+      })
+    },
+      myRecall() {
+      this.$router.push({
+        path: './myRecall'
       })
     },
     toPerson() {
@@ -353,6 +359,7 @@ form {
   color: #ffffff;
   font-size: 35px;
   border-radius: 10px;
+  margin-top: 10px;
 }
 .bar {
   height: 280px;

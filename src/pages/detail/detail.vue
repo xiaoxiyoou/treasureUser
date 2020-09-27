@@ -22,7 +22,7 @@
     <!-- <ly-tab :class="searchBarFixed == true ? 'isFixed' :''" v-if="this.items.length>0" v-model="selectedId" :items="items" :options="options" @change="switchItem"></ly-tab> -->
     <div id="searchBar"></div>
     <!-- 视频 -->
-    <div class="videoCon row j-c a-c" v-if="video">
+    <div class="videoCon row j-c a-c" v-if="video&&videoShow">
       <video id="video" :src="video" webkit-playsinline="true" x-webkit-airplay="true" playsinline="true" x5-video-orientation="h5" x5-video-player-fullscreen="true" x5-playsinline preload="auto" controlslist="nodownload" style="object-fit: fill" controls="false" poster="./cp022.jpg"></video>
     </div>
     <!-- 音频 -->
@@ -89,6 +89,15 @@
     <!-- 分享 -->
     <div class="mask" v-if="mask" @click="maskShow(false)"></div>
     <img v-if="mask" class="maskImg" @click="maskShow(false)" src="./shareTip.png" alt="">
+    <!-- 查看更多 -->
+    <img class="more " @click="qrcodeShow" src="./more.png" alt="" />
+    <!-- 二维码弹框 -->
+    <van-popup v-model="qrcode" closeable close-icon="close" class="qrwrap col a-c" @closed="closed()">
+      <div class="qrTitle">长按识别</div>
+      <div class="qrdes"><span>“家族宝风水盒”</span>官方服务号</div>
+      <img class="qrImg" src="./qrCode.png" alt="" />
+      <div class="qrtip">了解更多家族宝品牌用品</div>
+    </van-popup>
   </div>
 </template>
 
@@ -99,6 +108,7 @@ import { share } from 'assets/js/shareDetail.js'
 export default {
   data() {
     return {
+      qrcode: false,
       searchBarFixed2: false,
       indexdefault: 0,
       heartpng: require('./heart.png'),
@@ -165,7 +175,8 @@ export default {
       imglist: [],
       newList: [],
       yuyi: [],
-      searchBarFixed: false
+      searchBarFixed: false,
+      videoShow: true
 
     }
   },
@@ -193,7 +204,15 @@ export default {
     window.addEvremoveEventListenerentListener('scroll', this.handleScroll2)
   },
   methods: {
- 
+    // 监听弹框关闭显示视频
+    closed() {
+      this.videoShow = true
+    },
+    // 显示二维码弹框
+    qrcodeShow() {
+      this.qrcode = true
+      this.videoShow = false
+    },
     //浏览
     _Browse() {
       Browse({
@@ -324,7 +343,7 @@ export default {
           window.addEventListener('scroll', this.handleScroll)
           window.addEventListener('scroll', this.handleScroll2)
         })
-        share( this.goodDetail.title,'http://wx.app.jzb768.com/#/detail?id=' + this.goodDetail.id, '点击进入易经泰斗廖墨香老师作品体验店', this.goodDetail.imgurl)
+        share(this.goodDetail.title, 'http://wx.app.jzb768.com/#/detail?id=' + this.goodDetail.id, '点击进入易经泰斗廖墨香老师作品体验店', this.goodDetail.imgurl)
       })
     },
     _goodsList3(catid, isnew) {
@@ -474,6 +493,7 @@ export default {
     img
       width 100%
       height 100%
+      margin-bottom 20px
 .swiper-wrapperTwo
   margin 60px auto
   width 600px
@@ -549,6 +569,30 @@ export default {
       padding-bottom 15px
       .price
         font-size 20px
+.qrwrap
+  width 572px
+  border-radius 10px
+  .qrTitle
+    color #000000
+    font-weight 700
+    font-size 40px
+    margin-top 62px
+  .qrdes
+    color #969696
+    font-size 40px
+    margin-top 27px
+    span
+      color #b19e85
+      font-weight 700
+  .qrImg
+    margin-top 27px
+    width 375px
+    height 375px
+  .qrtip
+    color #000000
+    font-size 28px
+    margin-top 7px
+    margin-bottom 67px
 .btmBar
   width 100%
   height 540px
@@ -623,5 +667,12 @@ img {
   transform: translate(-50%, -50%);
   z-index: 1001;
   width: 600px !important;
+}
+.more {
+  position: fixed;
+  right: 0;
+  top: 80%;
+  width: 220px;
+  z-index: 1000;
 }
 </style>
